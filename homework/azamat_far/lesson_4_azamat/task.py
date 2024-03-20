@@ -17,7 +17,7 @@ res_2 = my_dict["list"]
 res_3 = res_2.append("Added")
 del res_2[1]
 res_4 = my_dict["dict"]
-res_4["i am a tuple"] = "new_result"
+res_4[("i am a tuple",)] = "new_result"
 del res_4["password"]
 res_5 = res_2 = my_dict["set"]
 res_5.add("new_object")
