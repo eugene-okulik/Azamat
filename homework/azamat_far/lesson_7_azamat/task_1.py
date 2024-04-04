@@ -3,7 +3,7 @@ n = 23
 
 def guess(number):
     while True:
-        number = int(input())
+        number = int(input("Введите число: "))
         if number == n:
             print("Вы угадали число")
             break
