@@ -3,7 +3,7 @@ a, b, c, d = words
 
 
 def result(words):
-	print(f'{a * words.get('I')}\n{b * words.get('love')}\n\
+    print(f'{a * words.get('I')}\n{b * words.get('love')}\n\
 {c * words.get('Python')}\n{d * words.get('!')}')
 
 
