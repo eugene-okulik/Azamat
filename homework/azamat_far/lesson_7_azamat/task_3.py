@@ -7,9 +7,7 @@ vol = (result_1, result_2, result_3, result_4)
 
 def main_res(vol):
     for i in vol:
-        position = i.split(": ")
-        print(position[1])
-        # Не могу победить, чтобы функция None не возвращала(
+        print(int(i.split(": ")[1]) + 10)
 
 
-print(main_res(vol))
+main_res(vol)
