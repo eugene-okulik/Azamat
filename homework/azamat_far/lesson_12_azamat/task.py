@@ -17,7 +17,7 @@ class Lily(Flower):
         super().__init__(color, fresh, stem_length, price, lifespan)
 
 
-class Bouquet():
+class Bouquet:
     def __init__(self):
         self.flowers = []
 
@@ -32,9 +32,10 @@ class Bouquet():
     def sort_flowers_by_parameter(self, parameter):
         return sorted(self.flowers, key=lambda x: getattr(x, parameter))
 
-    def search_flowers_by_parameter(self, parameter, value):
-        return [flower for flower in self.flowers if getattr(
-            flower, parameter) == value]
+    def search_flowers_by_parameter(self, param, value):
+        return [
+            flower for flower in self.flowers if getattr(flower, param) == value
+        ]
 
 
 # Создаем объекты цветов
@@ -49,9 +50,7 @@ bouquet.add_flower(rose2)
 bouquet.add_flower(lily1)
 
 # Расчет времени увядания букета
-print(
-    f"Среднее время увядания букета: {bouquet.calculate_wilting_time()} суток"
-     )
+print(f"Время увядания букета: {bouquet.calculate_wilting_time()} суток")
 
 # Сортировка цветов по параметру, передавая необходимый
 sorted_flowers = bouquet.sort_flowers_by_parameter("price")
