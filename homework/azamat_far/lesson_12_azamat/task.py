@@ -51,7 +51,7 @@ bouquet.add_flower(lily1)
 # Расчет времени увядания букета
 print(
     f"Среднее время увядания букета: {bouquet.calculate_wilting_time()} суток"
-    )
+     )
 
 # Сортировка цветов по параметру, передавая необходимый
 sorted_flowers = bouquet.sort_flowers_by_parameter("price")
