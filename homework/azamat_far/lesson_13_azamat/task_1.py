@@ -8,7 +8,7 @@ file_path = os.path.join(base_path, 'data.txt')
 hw_path = os.path.dirname(os.path.dirname(base_path))
 evg_file_path = os.path.join(
     hw_path, 'eugene_okulik', 'hw_13', 'data.txt'
-    )
+                            )
 new_file_path = os.path.join(base_path, 'new_data.txt')
 
 
