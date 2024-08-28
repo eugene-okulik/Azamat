@@ -1,0 +1,60 @@
+INSERT INTO students (name, second_name)
+VALUES ('Igor', 'Maximus');
+SELECT * FROM students WHERE name = 'Igor';
+
+INSERT INTO books (title)
+VALUES ('Таня Гроттер');
+SELECT * FROM books WHERE title = 'Таня Гроттер';
+
+UPDATE books
+SET taken_by_student_id = (SELECT id FROM students WHERE name = 'Igor')
+WHERE title = 'Таня Гроттер';
+SELECT * FROM books WHERE title = 'Таня Гроттер';
+
+INSERT INTO books (title, taken_by_student_id)
+VALUES ('Кольца Властелина', (SELECT id FROM students WHERE name = 'Igor'));
+SELECT * FROM books WHERE title = 'Кольца Властелина';
+
+INSERT INTO `groups` (title, start_date, end_date)
+VALUES ('Группа любителей кинофильмов', 'sep 12', 'dec 31');
+SELECT * FROM `groups` WHERE title = 'Группа любителей кинофильмов';
+
+UPDATE students
+SET group_id = (SELECT id FROM `groups` WHERE title = 'Группа любителей кинофильмов')
+WHERE name = 'Igor';
+SELECT * FROM students WHERE name = 'Igor';
+
+INSERT INTO subjets (title)
+VALUES ('Прикладная математика с нотками физики');
+SELECT * FROM subjets WHERE title = 'Прикладная математика с нотками физики';
+
+INSERT INTO subjets (title)
+VALUES ('Прикладная физика с нотками математики'),
+	 ('Русский в перемешку с английским');
+
+INSERT INTO lessons (title, subject_id)
+VALUES ('Математика и Физика', (SELECT id FROM subjets WHERE title = 'Прикладная математика с нотками физики'));
+SELECT * FROM lessons WHERE title = 'Математика и Физика';
+
+INSERT INTO lessons (title, subject_id)
+VALUES 
+('Физика и математика', (SELECT id FROM subjets WHERE title = 'Прикладная физика с нотками математики')),
+('Русский и английский', (SELECT id FROM subjets WHERE title = 'Русский в перемешку с английским'));
+
+INSERT INTO marks (value, lesson_id, student_id)
+VALUES
+('5', (SELECT id FROM lessons WHERE title = 'Математика и Физика'), (SELECT id FROM students WHERE name = 'Igor')),
+('3', (SELECT id FROM lessons WHERE title = 'Русский и английский'), (SELECT id FROM students WHERE name = 'Igor')),
+('4', (SELECT id FROM lessons WHERE title = 'Физика и математика'), (SELECT id FROM students WHERE name = 'Igor'));
+
+SELECT * FROM marks WHERE student_id = 2013;
+
+SELECT * FROM books WHERE taken_by_student_id = 2013;
+
+SELECT b.title, g.title, m.value, l.title, su.title
+FROM books AS b INNER JOIN students AS s ON b.taken_by_student_id = s.id
+	 INNER JOIN `groups` AS g ON g.id = s.group_id
+	 INNER JOIN marks AS m ON s.id = m.student_id
+	 INNER JOIN lessons AS l ON m.lesson_id = l.id
+	 INNER JOIN subjets AS su ON l.subject_id = su.id 
+WHERE name = 'Igor';
