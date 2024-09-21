@@ -4,7 +4,7 @@ import mysql.connector as mysql
 db = mysql.connect(
     user='st-onl',
     passwd='***',
-    host='db-mysql-fra1-09136-do-user-7651996-0.b.db.ondigitalocean.com',
+    host='***',
     port=25060,
     database='st-onl'
 )
