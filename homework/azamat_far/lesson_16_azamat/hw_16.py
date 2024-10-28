@@ -44,7 +44,7 @@ for i in range(4):
     mr_value = data[i]['mark_value']
     tup = (
         name, sec_name, gr_title, b_title, sub_title, les_title, mr_value
-          )
+    )
     # Проверка наличия в 'names' строки из файла
     for j in names:
         if tup in names:
