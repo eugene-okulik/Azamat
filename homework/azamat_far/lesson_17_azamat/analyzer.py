@@ -22,6 +22,18 @@ def search(logs, search_name):
             for i, line in enumerate(log_file.readlines()):
                 if search_name in line:
                     print(f'The line: {line} on index: {i} log file: {FILE}')
+                    # Вывод части строки
+                    first_index = line.index(search_name)
+                    last_index = first_index + len(search_name)
+                    start = first_index - 5
+                    end = last_index + 5
+                    # Блок обработки возникновения ошибок поиска по индексу
+                    if start < 0:
+                        print(line[:end], end='\n')
+                    elif end > len(line):
+                        print(line[start:], end='\n')
+                    else:
+                        print(line[start:end], end='\n')
                     break
             else:
                 print("Nothing find")
