@@ -11,7 +11,7 @@ def one_object():
     post_id = new_object()
     response = requests.get(
         f'http://167.172.172.115:52353/object/{post_id}'
-        ).json()
+    ).json()
     print(response)
     assert response['id'] == post_id
 
@@ -31,7 +31,7 @@ def post_object():
         'http://167.172.172.115:52353/object',
         json=body,
         headers=headers
-        )
+    )
     print(response.json())
 
 
@@ -50,7 +50,7 @@ def new_object():
         'http://167.172.172.115:52353/object',
         json=body,
         headers=headers
-        )
+    )
     return response.json()['id']
 
 
@@ -74,7 +74,7 @@ def put_object():
         f'http://167.172.172.115:52353/object/{object_id}',
         json=body,
         headers=headers
-        ).json()
+    ).json()
     print(response)
     assert response['name'] == 'Modified_object'
     clear()
@@ -92,7 +92,7 @@ def patch_object():
         f'http://167.172.172.115:52353/object/{object_id}',
         json=body,
         headers=headers
-        ).json()
+    ).json()
     print(response)
     clear()
 
