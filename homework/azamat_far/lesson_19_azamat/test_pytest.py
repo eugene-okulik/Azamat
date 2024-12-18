@@ -18,7 +18,7 @@ def test_one_object(new_object, info):
 
 @pytest.mark.parametrize(
     'name', ['Azamat', 'Farkhutdinov']
-    )
+)
 @pytest.mark.critical
 def test_post_object(name, info):
     body = {
