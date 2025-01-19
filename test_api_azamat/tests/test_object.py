@@ -2,12 +2,12 @@ import pytest
 
 
 TEST_DATA = [
-    {'name': 'Azm_object', 'data': {'color': 'blueberry', 'size': 'XXL'}}, 
+    {'name': 'Azm_object', 'data': {'color': 'blueberry', 'size': 'XXL'}},
     {'name': 'Far_object', 'data': {'color': 'red', 'size': 'medium'}}
 ]
 
 NEGATIVE_DATA = [
-    {'name': ['Azm_object'], 'data': {'color': 'blueberry', 'size': 'XXL'}}, 
+    {'name': ['Azm_object'], 'data': {'color': 'blueberry', 'size': 'XXL'}},
     {'name': {'Far_object': ''}, 'data': {'color': 'red', 'size': 'medium'}}
 ]
 
@@ -17,6 +17,7 @@ def test_post_object(create_post_endpoint, data):
     create_post_endpoint.create_new_post(data)
     create_post_endpoint.check_that_status_is_200()
     create_post_endpoint.check_response_title_correct(data['name'])
+
 
 @pytest.mark.parametrize('data', NEGATIVE_DATA)
 def test_post_with_negative_data(create_post_endpoint, data):

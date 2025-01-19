@@ -5,7 +5,6 @@ from endpoints.endpoint import Endpoint
 
 class CreatePost(Endpoint):
 
-
     @allure.step('Create a post')
     def create_new_post(self, body, headers=None):
         headers = headers if headers else self.headers

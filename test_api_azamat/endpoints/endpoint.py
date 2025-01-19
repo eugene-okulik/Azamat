@@ -23,7 +23,7 @@ class Endpoint:
     def check_count_objects(self):
         assert len(self.json) < 100, 'Not all objects'
 
-    @allure.step(f'Check that post id is same')
+    @allure.step('Check that post id is same')
     def check_id_post(self, new_object):
         assert self.json['id'] == new_object
 
