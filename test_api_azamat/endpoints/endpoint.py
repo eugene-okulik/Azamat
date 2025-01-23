@@ -9,6 +9,7 @@ class Endpoint:
 
     @allure.step('Check that name is same as sent')
     def check_response_title_correct(self, name):
+        self.json = self.response.json()
         assert self.json['name'] == name
 
     @allure.step('Check_that_response_200')
@@ -21,10 +22,10 @@ class Endpoint:
 
     @allure.step('Check count objects')
     def check_count_objects(self):
-        assert len(self.json) < 100, 'Not all objects'
+        assert len(self.json['data']) < 100, 'Not all objects'
 
     @allure.step('Check that post id is same')
-    def check_id_post(self, new_object):
+    def check_id_object(self, new_object):
         assert self.json['id'] == new_object
 
     @allure.step('Check name change')

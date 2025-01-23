@@ -1,6 +1,6 @@
 import pytest
-from endpoints.create_post import CreatePost
-from endpoints.update_post import UpdatePost
+from endpoints.create_object import CreateObject
+from endpoints.update_object import UpdateObject
 from endpoints.get_objects import GetObjects
 from endpoints.get_one import GetOneObject
 from endpoints.post_id import PostNew
@@ -8,13 +8,13 @@ from endpoints.patch_object import PatchObject
 
 
 @pytest.fixture()
-def create_post_endpoint():
-    return CreatePost()
+def create_object_endpoint():
+    return CreateObject()
 
 
 @pytest.fixture()
-def update_post_endpoint():
-    return UpdatePost()
+def update_object_endpoint():
+    return UpdateObject()
 
 
 @pytest.fixture()

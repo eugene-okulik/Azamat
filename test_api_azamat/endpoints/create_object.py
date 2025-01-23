@@ -3,10 +3,10 @@ import allure
 from endpoints.endpoint import Endpoint
 
 
-class CreatePost(Endpoint):
+class CreateObject(Endpoint):
 
     @allure.step('Create a post')
-    def create_new_post(self, body, headers=None):
+    def create_new_object(self, body, headers=None):
         headers = headers if headers else self.headers
         self.response = requests.post(
             self.url,
@@ -14,5 +14,4 @@ class CreatePost(Endpoint):
             headers=headers
         )
 
-        self.json = self.response.json()
         return self.response
