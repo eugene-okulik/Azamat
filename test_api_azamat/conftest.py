@@ -5,6 +5,7 @@ from endpoints.get_objects import GetObjects
 from endpoints.get_one import GetOneObject
 from endpoints.post_id import PostNew
 from endpoints.patch_object import PatchObject
+from endpoints.delete_object import DeleteObject
 
 
 @pytest.fixture()
@@ -35,3 +36,8 @@ def post_new_object():
 @pytest.fixture()
 def patch_name_object():
     return PatchObject()
+
+
+@pytest.fixture()
+def delete_one_object():
+    return DeleteObject()
