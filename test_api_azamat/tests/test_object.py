@@ -33,8 +33,9 @@ def test_put_object(update_object_endpoint, post_new_object):
             'size': 'XL'
         }
     }
-    new_id = post_new_object.new_object()
-    update_object_endpoint.make_changes_in_object(new_id, body)
+    update_object_endpoint.make_changes_in_object(
+        post_new_object.new_object(), body
+    )
     update_object_endpoint.check_response_title_correct(body['name'])
 
 
