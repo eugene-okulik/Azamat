@@ -30,9 +30,9 @@ def get_one_object():
 @pytest.fixture()
 def post_new_object():
     body = {
-            'name': 'For testing',
-            'data': {'color': 'black', 'size': 'Large'}
-        }
+        'name': 'For testing', 
+        'data': {'color': 'black', 'size': 'Large'}
+    }
     new_object = CreateObject().create_new_object(body)
     id_object = new_object.json()['id']
     yield id_object
