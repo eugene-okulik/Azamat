@@ -33,9 +33,7 @@ def test_put_object(update_object_endpoint, post_new_object):
             'size': 'XL'
         }
     }
-    update_object_endpoint.make_changes_in_object(
-        post_new_object.new_object(), body
-    )
+    update_object_endpoint.make_changes_in_object(post_new_object, body)
     update_object_endpoint.check_response_title_correct(body['name'])
 
 
@@ -45,15 +43,15 @@ def test_all_objects(get_all_objects):
 
 
 def test_one_object(post_new_object, get_one_object):
-    get_one_object.get_object(post_new_object.new_object())
-    get_one_object.check_id_object(post_new_object.new_object())
+    get_one_object.get_object(post_new_object)
+    get_one_object.check_id_object(post_new_object)
 
 
 def test_patch_object(patch_name_object, post_new_object):
-    patch_name_object.make_changes_in_object(post_new_object.new_object())
+    patch_name_object.make_changes_in_object(post_new_object)
     patch_name_object.check_name_patch()
 
 
 def test_delete_object(delete_one_object, post_new_object):
-    delete_one_object.delete_object(post_new_object.new_object())
+    delete_one_object.delete_object(post_new_object)
     delete_one_object.check_that_status_is_200()

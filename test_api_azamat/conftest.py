@@ -3,7 +3,6 @@ from endpoints.create_object import CreateObject
 from endpoints.update_object import UpdateObject
 from endpoints.get_objects import GetObjects
 from endpoints.get_one import GetOneObject
-from endpoints.post_id import PostNew
 from endpoints.patch_object import PatchObject
 from endpoints.delete_object import DeleteObject
 
@@ -30,7 +29,14 @@ def get_one_object():
 
 @pytest.fixture()
 def post_new_object():
-    return PostNew()
+    body = {
+            'name': 'For testing',
+            'data': {'color': 'black', 'size': 'Large'}
+        }
+    new_object = CreateObject().create_new_object(body)
+    id_object = new_object.json()['id']
+    yield id_object
+    DeleteObject().delete_object(id_object)
 
 
 @pytest.fixture()

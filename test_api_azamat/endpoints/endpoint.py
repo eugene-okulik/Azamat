@@ -26,7 +26,7 @@ class Endpoint:
 
     @allure.step('Check that post id is same')
     def check_id_object(self, new_object):
-        assert self.json['id'] + 1 == new_object
+        assert self.json['id'] == new_object
 
     @allure.step('Check name change')
     def check_name_patch(self):
