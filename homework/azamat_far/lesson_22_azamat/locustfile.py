@@ -4,7 +4,6 @@ import random
 
 class Objects(HttpUser):
 
-
     @task(1)
     def get_all_objects(self):
         self.client.get(
